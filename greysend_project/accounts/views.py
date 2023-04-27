@@ -27,3 +27,9 @@ def signup(request):
             login(request, user)
         return render(request, 'signup.html', {"form":UserCreationForm})  
 # Compare this snippet from greysend_project/accounts/models.py:
+
+
+def user(request):
+    users = User.objects.all()
+    # request.url or params
+    return render(request, 'user.html', {"username": "barnaby", "users": users})
