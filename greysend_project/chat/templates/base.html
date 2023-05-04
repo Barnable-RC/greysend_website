@@ -19,22 +19,24 @@
               <a class="nav-link" href="{% url 'home' %}">Home</a>
             </li>
             {% if user.is_authenticated %}
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'list_users' %}">Members</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'test' %}">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'test' %}">Logout</a>
-              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'test' %}">Mission Accomplished!</a>
+            </li>
             {% else %}
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'test' %}">Mission Accomplished!</a>
-              </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'list_users' %}">Members</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'test' %}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'test' %}">Logout</a>
+            </li>
+             
             {% endif %}
           </ul>
         </div>

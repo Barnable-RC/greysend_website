@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Rooms</title>
+</head>
+<body>
+    <h1>Enter a Chat Room</h1>
+    <form method="get">
+        <label for="room_name">Room name:</label>
+        <input type="text" name="room_name" required>
+        <button type="submit">Enter</button>
+    </form>
+
+
+    
+    <script>
+        // Add an event listener to the form submit event
+        document.querySelector('form').addEventListener('submit', function(event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+            // Get the room name entered by the user
+            var roomName = document.querySelector('input[name="room_name"]').value;
+            // Redirect the user to the URL with the room name included
+            window.location.href = "" + encodeURIComponent(roomName);
+        });
+    </script>
+</body>
+</html>
