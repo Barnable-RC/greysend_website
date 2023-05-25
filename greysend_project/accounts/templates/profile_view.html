@@ -1,0 +1,28 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+<h1><b>{{ user_object.username }}'s</b> Profile Page</h1>
+
+<div class="card h-100">
+  <img src="" class="card-img-top dog-image" alt="Cute Dog" />
+  <div class="card-body">
+    <h5 class="card-title fw-bold">
+      {{ user_object.first_name }} {{ user_object.last_name }}
+    </h5>
+    <p class="card-text">@{{ user_object.username }}</p>
+    <p class="card-text"> Here's a spot for more info from {{ user_object }}</p>
+  </div>
+</div>
+
+
+<script>
+  window.onload = function () {
+    const dogImages = document.querySelectorAll(".dog-image");
+    dogImages.forEach((img) => {
+      img.src = `https://placedog.net/300/200?random=${Math.random()}`;
+    });
+  };
+</script>
+
+{% endblock %}

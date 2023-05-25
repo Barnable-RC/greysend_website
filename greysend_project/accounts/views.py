@@ -1,9 +1,16 @@
 from django.shortcuts import render
+<<<<<<< HEAD
+=======
 from .models import AccountUser
+>>>>>>> master
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.shortcuts import redirect
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
 
 # Create your views here.
 def index(request):
@@ -27,8 +34,10 @@ def signup(request):
             # login(request, user)
         #retirm login page
         return render(request, 'signup.html', {"form":UserCreationForm})  
-# Compare this snippet from greysend_project/accounts/models.py:
 
+def profile_view(request, username):
+    p_user = User.objects.get(username=username)
+    return render(request, 'profile_view.html', {"user_object": p_user})
 
 def log_in(request):
     if request.method == 'GET':
