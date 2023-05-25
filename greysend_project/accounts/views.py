@@ -29,7 +29,6 @@ def signup(request):
 # Compare this snippet from greysend_project/accounts/models.py:
 
 
-def user(request):
-    users = User.objects.all()
-    # request.url or params
-    return render(request, 'user.html', {"username": "barnaby", "users": users})
+def profile_view(request, user):
+    p_user = User.objects.get(username=user)
+    return render(request, 'profile_view.html', {"user": p_user})
