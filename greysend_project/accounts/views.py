@@ -27,9 +27,9 @@ def signup(request):
             login(request, user)
         return render(request, 'signup.html', {"form":UserCreationForm})  
 
-def profile_view(request, user):
-    p_user = User.objects.get(username=user)
-    return render(request, 'profile_view.html', {"user": p_user})
+def profile_view(request, username):
+    p_user = User.objects.get(username=username)
+    return render(request, 'profile_view.html', {"user_object": p_user})
 
 def log_in(request):
     if request.method == 'GET':
