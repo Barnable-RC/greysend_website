@@ -1,16 +1,10 @@
 from django.shortcuts import render
-<<<<<<< HEAD
-=======
 from .models import AccountUser
->>>>>>> master
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.shortcuts import redirect
-<<<<<<< HEAD
 
-=======
->>>>>>> master
 
 # Create your views here.
 def index(request):
@@ -28,11 +22,11 @@ def signup(request):
         return render(request, 'signup.html', {'form': UserCreationForm})
     else:
         if request.POST['password1'] == request.POST['password2']:
-            user = User.objects.create_user(request.POST['username'],
+            user = AccountUser.objects.create_user(request.POST['username'],
                                             password=request.POST['password1'])
+            print('here!=============================', user)
             user.save()
-            # login(request, user)
-        #retirm login page
+      
         return render(request, 'signup.html', {"form":UserCreationForm})  
 
 def profile_view(request, username):
