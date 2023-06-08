@@ -24,7 +24,6 @@ def signup(request):
         if request.POST['password1'] == request.POST['password2']:
             user = AccountUser.objects.create_user(request.POST['username'],
                                             password=request.POST['password1'])
-            print('here!=============================', user)
             user.save()
       
         return render(request, 'signup.html', {"form":UserCreationForm})  
