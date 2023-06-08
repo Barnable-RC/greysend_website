@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import AccountUser
+from chat.models import ChatUser
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -9,7 +10,6 @@ from django.shortcuts import redirect
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
-
 
 def list_users(request):
     users = User.objects.all()
@@ -25,7 +25,8 @@ def signup(request):
             user = AccountUser.objects.create_user(request.POST['username'],
                                             password=request.POST['password1'])
             user.save()
-      
+            this_chat_user = ChatUser.objects.create(user=user)
+            this_chat_user.save()
         return render(request, 'signup.html', {"form":UserCreationForm})  
 
 def profile_view(request, username):

@@ -5,7 +5,7 @@ from accounts.models import AccountUser
 #users
     # Require Richie to replace User model here with custom user model
 class ChatUser (models.Model):
-    User = models.OneToOneField(
+    user = models.OneToOneField(
         AccountUser,
         on_delete=models.CASCADE,
         primary_key=True,
